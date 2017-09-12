@@ -1,41 +1,45 @@
 #!/bin/bash
-thisPath=`pwd`
-packages=packages.txt
-vimdir=~/.vim
-packagesPath=`pwd`/$packages
 
+# Souce code imports
+source src/structure.sh
+source src/downloader.sh
+source src/installer.sh
 
-# Create vim folder
-echo "(1/5) Creating folder structure..."
-mkdir -p "$vimdir"
-mkdir -p "$vimdir/bundle"
-mkdir -p "$vimdir/autoload"
-mkdir -p "$vimdir/colors"
+source src/logger.sh
 
-echo "(2/5) Installing pathogen.vim..."
-curl -LSso $vimdir/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+# About the environment
+vimBasePath=~/.vim
+packageList=packages.txt
 
-echo "(3/5) Installing packages..."
-cd $vimdir/bundle
-while IFS= read -r package
-do
-    echo cloning "$package"
-    git clone -q $package
-done < "$packagesPath"
+# Tasks that are executed by this script
+tasks=(
+    ""  # A small little hack
+    "Cleaning VIM directory structure"
+    "Creating VIM directory structure"
+    "Installing Pathgen"
+    "Installing VIM Packages"
+    "Executing packages install scripts"
+    "Copying .vimrc to HOME"
+)
 
-echo "(4/5) Executing packages triggers"
-echo "(1/2) Installing YouCompleteMe"
-cd $vimdir/bundle
-cd YouCompleteMe
-git submodule update --init --recursive
-./install.py --all
+# Exectution
 
-echo "(2/2) Installing term_for_vim"
-cd ..
-cd tern_for_vim
-npm install
+set_log_tasks $tasks
 
+log_task
+clear_vim_structure $vimBasePath
 
-echo "(5/5) Copying .vimrc to $HOME..."
-cd $thisPath
+log_task
+create_vim_structure $vimBasePath
+
+log_task
+download_pathgen $vimBasePath
+
+log_task
+download_vim_packages $packageList $vimBasePath 
+
+log_task
+execute_package_install_scripts $vimBasePath
+
+log_task
 cp .vimrc ~/
