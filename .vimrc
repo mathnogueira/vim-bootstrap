@@ -34,6 +34,8 @@ let g:indentLine_color_term = 236
 nnoremap <C-J> :tabprevious<CR>
 nnoremap <C-K> :tabnext<CR>
 nnoremap <C-C> :tabclose<CR>
+nnoremap <C-down> :m .+1<CR>
+nnoremap <C-up> :m .-2<CR>
 
 let g:nerdtree_tabs_open_on_console_startup=1
 
