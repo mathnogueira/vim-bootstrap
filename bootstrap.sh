@@ -9,7 +9,7 @@ source src/logger.sh
 
 # About the environment
 vimBasePath=~/.vim
-packageList=packages.txt
+packageList=config/packages.txt
 
 # Tasks that are executed by this script
 tasks=(
@@ -42,4 +42,4 @@ log_task
 execute_package_install_scripts $vimBasePath
 
 log_task
-cp .vimrc ~/
+cp config/.vimrc ~/
