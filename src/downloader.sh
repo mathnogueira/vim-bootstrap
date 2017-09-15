@@ -1,16 +1,22 @@
 #!/bin/bash
 
+source src/depman.sh
+
 function download_vim_packages () {
     packages=`pwd`/$1
-    currentPath=`pwd`
+    cpwd=$(pwd)
+
+    depman_init
+
     cd $2/bundle
     while IFS= read -r package
     do
         echo cloning "$package"
         git clone -q $package
+        depman_install $package $cpwd
     done < "$packages"
 
-    cd $currentPath
+    cd $cpwd
 }
 
 function download_pathgen () {
