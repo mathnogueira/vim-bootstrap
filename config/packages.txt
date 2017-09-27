@@ -11,3 +11,5 @@ https://github.com/jistr/vim-nerdtree-tabs.git
 git://github.com/airblade/vim-gitgutter.git
 https://github.com/ternjs/tern_for_vim.git
 https://github.com/Valloric/YouCompleteMe.git
+https://github.com/ryanoasis/vim-devicons
+https://github.com/vim-airline/vim-airline-themes
