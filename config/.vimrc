@@ -112,7 +112,7 @@ let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\.bak$', '\~$']
 let g:NERDTreeShowBookmarks=1
 let g:nerdtree_tabs_focus_on_files=1
 let g:nerdtree_tabs_open_on_console_startup=1
-let g:NERDTreeWinSize = 40
+let g:NERDTreeWinSize = 30
 
 "Indent line
 let g:indentLine_color_term = 236
@@ -122,7 +122,7 @@ let g:indentLine_char = '┆'
 let g:indentLine_faster = 1
 
 " Airline
-let g:airline_theme = 'powerlineish'
+let g:airline_theme = 'jellybeans'
 let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
@@ -132,14 +132,9 @@ let g:airline_powerline_fonts = 1
 
 " Icons in the editor
 let g:webdevicons_enable = 1
-" adding the flags to NERDTree
 let g:webdevicons_enable_nerdtree = 1
-" adding to vim-airline's tabline
 let g:webdevicons_enable_airline_tabline = 1
-" adding to vim-airline's statusline
 let g:webdevicons_enable_airline_statusline = 1
-" ctrlp glyphs
 let g:webdevicons_enable_ctrlp = 1
-" change the default character when no match found
 let g:WebDevIconsUnicodeDecorateFileNodesDefaultSymbol = 'ƛ'
 set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ 11
