@@ -110,8 +110,6 @@ let g:webdevicons_enable = 0
 " Colorscheme
 colorscheme Atelier_SavannaDark
 
-" Ctrl+P
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
 " NERD Tree startup
 autocmd vimenter * NERDTree
@@ -149,3 +147,10 @@ let g:webdevicons_enable_airline_statusline = 1
 let g:webdevicons_enable_ctrlp = 1
 let g:WebDevIconsUnicodeDecorateFileNodesDefaultSymbol = 'ƛ'
 set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ 11
+
+" Ctrl+P
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+let g:ctrlp_prompt_mappings = {
+    \ 'AcceptSelection("e")': ['<c-t>'],
+    \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
+    \ }
