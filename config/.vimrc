@@ -63,11 +63,6 @@ set laststatus=2
 
 let mapleader='-'
 
-" Tab navigation
-"nnoremap <C-J> :tabprevious<CR>
-"nnoremap <C-K> :tabnext<CR>
-"nnoremap <C-C> :tabclose<CR>
-
 " Line moving
 nnoremap <C-down> :m .+1<CR>
 nnoremap <C-up> :m .-2<CR>
