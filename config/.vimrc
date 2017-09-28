@@ -111,11 +111,7 @@ let g:webdevicons_enable = 0
 colorscheme Atelier_SavannaDark
 
 " Ctrl+P
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn)|node_modules$',
-  \ 'file': '\v\.(exe|so|dll)$',
-  \ 'link': 'some_bad_symbolic_links',
-  \ }
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
 " NERD Tree startup
 autocmd vimenter * NERDTree
