@@ -3,7 +3,7 @@
 "*****************************************
 
 set nocompatible " use vim defaults
-filetype off " filetype needs to be off before Vundle
+filetype plugin on
 
 " Execute the local .vimrc in secure mode (overwrites global definitions)
 set exrc
@@ -32,6 +32,9 @@ set ttyfast
 "" Fix backspace indent
 set backspace=indent,eol,start
 
+" Ignore
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,node_modules/*,bower_components/*
+
 "****************************************
 " Visual settings
 "****************************************
@@ -58,7 +61,7 @@ set laststatus=2
 " Key mappings
 "**************************************
 
-let mapleader=','
+let mapleader='-'
 
 " Tab navigation
 "nnoremap <C-J> :tabprevious<CR>
@@ -77,14 +80,21 @@ noremap <Leader>v :<C-u>vsplit<CR>
 nnoremap <Tab> gt
 nnoremap <S-Tab> gT
 nnoremap <silent> <S-t> :tabnew<CR>
+nnoremap <silent> <S-w> :tabclose<CR>
 
 "" Vmap for maintain Visual Mode after shifting > and <
 vmap < <gv
 vmap > >gv
 
+
 "" Move visual block
 vnoremap <C-down> :m '>+1<CR>gv=gv
 vnoremap <C-up> :m '<-2<CR>gv=gv
+
+"" Goto file
+map <F12> :vertical wincmd gF<CR>
+
+
 
 "***************************************
 " Plugins configuration
@@ -100,6 +110,12 @@ let g:webdevicons_enable = 0
 " Colorscheme
 colorscheme Atelier_SavannaDark
 
+" Ctrl+P
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)|node_modules$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
 
 " NERD Tree startup
 autocmd vimenter * NERDTree
@@ -109,7 +125,6 @@ let NERDTreeMapOpenInTab='<ENTER>'
 let g:NERDTreeChDirMode=2
 let g:NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__']
 let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\.bak$', '\~$']
-let g:NERDTreeShowBookmarks=1
 let g:nerdtree_tabs_focus_on_files=1
 let g:nerdtree_tabs_open_on_console_startup=1
 let g:NERDTreeWinSize = 30

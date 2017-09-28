@@ -13,3 +13,6 @@ https://github.com/ternjs/tern_for_vim.git
 https://github.com/Valloric/YouCompleteMe.git
 https://github.com/ryanoasis/vim-devicons
 https://github.com/vim-airline/vim-airline-themes
+https://github.com/mattn/emmet-vim.git
+https://github.com/pangloss/vim-javascript.git
+https://github.com/scrooloose/nerdcommenter.git
